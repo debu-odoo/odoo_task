@@ -28,9 +28,6 @@ class StockPicking(models.Model):
 
 
 
-    #---------------------------------------
-    #method declaration
-    #---------------------------------------
 
     # @api.depends('appointment_date')
     # def _compute_scheduled_date(self):

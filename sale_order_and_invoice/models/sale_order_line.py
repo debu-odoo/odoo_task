@@ -13,8 +13,8 @@ class SaleOrderLine(models.Model):
 #-----------------
 
     @api.onchange('product_id')
-    def uom_change(self) :
-     for rec in self :
+    def uom_change(self):
+     for rec in self:
         uom_ids = rec.order_id.partner_id.partner_wise_uom_ids
         for record in uom_ids:
             if rec.product_id == record.product_id:

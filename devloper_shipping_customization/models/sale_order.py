@@ -7,7 +7,7 @@ class SaleOrder(models.Model):
     _inherit='sale.order'
 
     #---------------------------------------
-    #fied declaration
+    #field declaration
     #---------------------------------------
 
     appointment_date = fields.Datetime(string="Appointment Date")
@@ -26,10 +26,6 @@ class SaleOrder(models.Model):
     #             record.commitment_date = record.appointment_date - timedelta(days=record.partner_id.days_to_deliver)
 
 
-    #---------------------------------------
-    #method declaration
-    #---------------------------------------
-
     @api.depends('appointment_date')
     def _compute_delivery_date(self):
         for record in self:
@@ -39,9 +35,7 @@ class SaleOrder(models.Model):
 
 
 
-    #---------------------------------------
-    #method declaration
-    #---------------------------------------
+   
 
     # def action_confirm(self):
     #  res = super(SaleOrder, self).action_confirm()

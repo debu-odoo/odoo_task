@@ -9,7 +9,7 @@ class SaleOrder(models.Model):
 
 
     #---------------------------------------
-    #fied declaration
+    #field declaration
     #---------------------------------------
 
     zero_stock_approval = fields.Boolean(string = "Zero Stock Approval")
@@ -23,16 +23,14 @@ class SaleOrder(models.Model):
 
     def action_confirm(self):
      for record in self:
-         if record.zero_stock_approval == True :
+         if record.zero_stock_approval:
                 return super(SaleOrder, self).action_confirm()
          else:
              raise UserError ("Please Check Zero Stock Approval field")
 
     
     
-    #---------------------------------------
-    #method declaration
-    #---------------------------------------
+  
     
     @api.depends('zero_stock_approval')
     def set_readonly_approval(self):
